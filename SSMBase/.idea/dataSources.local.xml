@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Microsoft SQL Server - tn_iot@172.28.0.195" uuid="5012be78-ef77-4005-ad59-61ac762a0ab3">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MSSQL" exact-version="0" />
+      <secret-storage>master_key</secret-storage>
+      <domain-auth>true</domain-auth>
+      <schema-mapping />
+    </data-source>
+  </component>
+</project>
