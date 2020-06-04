@@ -39,8 +39,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -111,7 +111,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 8.5">
+  <component name="RunManager" selected="Application.TestJson">
+    <configuration name="TestJson" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.ikdzz.test.TestJson" />
+      <module name="SSMBase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ikdzz.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TestMyBatis" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SSMBase" />
       <extension name="coverage">
@@ -235,9 +248,11 @@
       <item itemvalue="JUnit.TestMyBatis" />
       <item itemvalue="JUnit.TestMyBatis.run1" />
       <item itemvalue="Tomcat Server.Tomcat 8.5" />
+      <item itemvalue="Application.TestJson" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TestJson" />
         <item itemvalue="JUnit.TestMyBatis.run1" />
         <item itemvalue="JUnit.TestMyBatis" />
         <item itemvalue="JUnit.TestSpring" />
@@ -280,7 +295,7 @@
       <workItem from="1591154972101" duration="2464000" />
       <workItem from="1591160102846" duration="9500000" />
       <workItem from="1591171825568" duration="4423000" />
-      <workItem from="1591230609899" duration="3618000" />
+      <workItem from="1591230609899" duration="4868000" />
     </task>
     <servers />
   </component>
