@@ -16,6 +16,7 @@
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 
+    <!--配置定时器(注解版)-->
     <task:annotation-driven  />
 
     <!--配置的视图解析器对象-->
