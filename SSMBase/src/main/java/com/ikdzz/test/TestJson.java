@@ -1,7 +1,7 @@
 package com.ikdzz.test;
 
 import com.alibaba.fastjson.JSON;
-import com.ikdzz.domain.Account;
+import com.ikdzz.domain.shiro.User;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -12,19 +12,19 @@ public class TestJson {
 
     @Test
     public static void main(String[] args) {
-        Account student1 = new Account();
+        User student1 = new User();
         student1.setId(1);
-        student1.setName("luxuhao");
-        student1.setMoney(900);
+        student1.setUsername("luxuhao");
+       // student1.s(900);
 
 
-        Account student2 = new Account();
+        User student2 = new User();
         student2.setId(2);
-        student2.setName("luxuhao888");
-        student2.setMoney(90088);
+        student2.setUsername("luxuhao888");
+      //  student2.setMoney(90088);
 
 
-        List<Account> students = new ArrayList<Account>();
+        List<User> students = new ArrayList<User>();
         students.add(student1);
         students.add(student2);
         System.out.println("********JAVA对象列表转json字符串**********");
@@ -35,11 +35,11 @@ public class TestJson {
         System.out.println(str2);
 
         System.out.println("********json字符串转JAVA对象列表**********");
-        List<Account> studentsTurn = JSON.parseArray(str1, Account.class);
+        List<User> studentsTurn = JSON.parseArray(str1, User.class);
         studentsTurn.forEach(System.out::println);
 
         System.out.println("********json字符串转JAVA对象**********");
-        Account student4 = JSON.parseObject(str2,Account.class);
+        User student4 = JSON.parseObject(str2, User.class);
         System.out.println(student4);
     }
 

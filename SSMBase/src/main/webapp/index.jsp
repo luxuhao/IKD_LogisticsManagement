@@ -1,20 +1,21 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <html>
-<head>
-    <title>Title</title>
-</head>
+<meta charset="utf-8">
 <body>
-
-<a href="account/findAll">测试查询</a>
-
-<h3>测试包</h3>
-
-<form action="account/save" method="post">
-    姓名：<input type="text" name="name" /><br/>
-    金额：<input type="text" name="money" /><br/>
-    <input type="submit" value="保存"/><br/>
-</form>
-
+<%--${pageContext.request.contextPath}--%>
+<%--<form action="/manage/user/islogin.do" method="post">--%>
+<%--    用户名：<input type="text" name="username"><br>--%>
+<%--    <br>--%>
+<%--    密码：<input type="password" name="psd"><br><br>--%>
+<%--    <input type="submit" value="登录">--%>
+<%--    <a href="Register.jsp">注册</a>--%>
+<%--    <span style="font-size:18px;">3秒后跳回登录页面...</span><span style="font-size:24px;"><meta http-equiv="refresh" content="3;/manage/user/islogin.do"> </span>--%>
+<%--</form>--%>
 </body>
+<script src="./static/common/jquery-3.3.1.min.js"></script>
+<script>
+    $(function () {
+        window.location.href="islogin"
+    })
+</script>
 </html>
-

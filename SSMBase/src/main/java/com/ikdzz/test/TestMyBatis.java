@@ -1,7 +1,7 @@
 package com.ikdzz.test;
 
-import com.ikdzz.dao.IAccountdao;
-import com.ikdzz.domain.Account;
+import com.ikdzz.dao.shirodao.IUserdao;
+import com.ikdzz.domain.shiro.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -16,9 +16,9 @@ public class TestMyBatis {
 
     @Test
     public void run1() throws IOException {
-        Account account =new Account();
-        account.setName("lu");
-        account.setMoney(200);
+        User user =new User();
+        user.setUsername("lu");
+       // user.setMoney(200);
         // 加载配置文件
         InputStream in = Resources.getResourceAsStream("SqlMapConfig.xml");
         // 创建SqlSessionFactory对象
@@ -26,10 +26,10 @@ public class TestMyBatis {
         // 创建SqlSession对象
         SqlSession session = factory.openSession();
         // 获取到代理对象
-        IAccountdao dao = session.getMapper(IAccountdao.class);
+        IUserdao dao = session.getMapper(IUserdao.class);
 
         // 保存
-        dao.saveAccount(account);
+        //dao.saveAccount(user);
 
         // 提交事务
         session.commit();
@@ -47,11 +47,11 @@ public class TestMyBatis {
 
         SqlSession session = factory.openSession();
 
-        IAccountdao dao = session.getMapper(IAccountdao.class);
+        IUserdao dao = session.getMapper(IUserdao.class);
 
-        List<Account> list = dao.findAll();
-        for (Account account: list ) {
-            System.out.println(account);
+        List<User> list = dao.findAll();
+        for (User user : list ) {
+            System.out.println(user);
         }
 
         session.close();
