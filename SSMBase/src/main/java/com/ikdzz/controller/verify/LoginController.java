@@ -9,6 +9,7 @@ import com.ikdzz.service.Impl.shiro.UserService;
 import org.apache.shiro.SecurityUtils;
 //import org.apache.shiro.authc.UsernamePasswordToken;
 
+import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 
 @Controller
 public class LoginController {
@@ -52,15 +52,16 @@ public class LoginController {
           try {
               //调用subject.login(token)进行登录，会自动委托给securityManager,调用之前
               subject.login(token);//会跳到我们自定义的realm中
-
+              String loginUserName = subject.getPrincipal().toString();
               request.getSession().setAttribute("user",user);
+              request.getSession().setAttribute("username",loginUserName);
               boolean test = subject.hasRole("101");
               System.out.print("登陆成功"+test);
               return "index";
           }
           catch (Exception e){
-            e.printStackTrace();
-             request.getSession().setAttribute("user",user);
+              e.printStackTrace();
+              request.getSession().setAttribute("user",user);
               request.setAttribute("error","用户名或密码错误");
               return "login";
           }

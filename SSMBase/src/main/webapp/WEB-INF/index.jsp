@@ -1,3 +1,4 @@
+<%@ page import="com.ikdzz.domain.shiro.User" %>
 <!--主界面，登陆后获取相对应权限-->
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -36,43 +37,7 @@
     <div class="layui-layout layui-layout-admin">
 
         <div class="layui-header">
-            <div class="layui-logo"> <h1 v-text="webname"></h1></div>
-<%--            <i class="layui-icon">&#xe715;</i>--%>
-
-<%--                <li v-for="vo in address">--%>
-<%--                    <a  v-text="vo.name" :href="vo.url" ></a> <span>/</span>--%>
-<%--                </li>--%>
-            <ul class="layui-nav layui-layout-left">
-                <li class="layui-nav-item"><a href="">控制台</a></li>
-                <li class="layui-nav-item"><a href="">商品管理</a></li>
-                <li class="layui-nav-item"><a href="">用户</a></li>
-                <li class="layui-nav-item">
-                    <a href="javascript:;">其它系统</a>
-                    <dl class="layui-nav-child">
-                        <dd><a href="">邮件管理</a></dd>
-                        <dd><a href="">消息管理</a></dd>
-                        <dd><a href="">授权管理</a></dd>
-                    </dl>
-                </li>
-            </ul>
-            <ul class="layui-nav layui-layout-right">
-                <li class="layui-nav-item">
-                    <a href="javascript:;">
-                        <img src="<%=basePath%>/static/admin/img/人员管理.png" class="layui-nav-img">
-                        卢旭浩
-                    </a>
-                    <dl class="layui-nav-child">
-                        <dd><a href="">基本资料</a></dd>
-                        <dd><a href="">安全设置</a></dd>
-                    </dl>
-                </li>
-                <li class="layui-nav-item"><a href="">退了</a></li>
-            </ul>
-
-
-
-
-
+            <%@include file="index_head.jsp"%>
         </div>
 
     </div>>
@@ -101,6 +66,9 @@
         <div class="right">
 
         <div class="layui-body">
+
+            <iframe></iframe>
+
 
         </div>
 

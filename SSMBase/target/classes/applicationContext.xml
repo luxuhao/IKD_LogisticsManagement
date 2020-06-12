@@ -142,4 +142,7 @@
         <aop:advisor advice-ref="txAdvice" pointcut="execution(* com.ikdzz.service.Impl.*ServiceImpl.*(..))"/>
     </aop:config>
 
+    <!-- 引入mq配置 -->
+    <import resource="activeMq.xml"/>
+
 </beans>

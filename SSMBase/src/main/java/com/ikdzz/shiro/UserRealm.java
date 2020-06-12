@@ -41,12 +41,26 @@ public class UserRealm extends AuthorizingRealm {
 
         User user = userService.findUserForLogin(user_id);
 
-        if (user == null) {
-            throw new UnknownAccountException("此用户不存在");
-        }
-        if (user.getPassword().equals(password)==false) {
-            throw new IncorrectCredentialsException("密码不正确");
-        }
+
+       // try{
+
+            if (user == null) {
+            throw new UnknownAccountException("用户不存在！");
+            }
+            if (user.getPassword().equals(password)==false) {
+                throw new IncorrectCredentialsException("密码不正确!");
+            }
+
+//        }catch (UnknownAccountException e){
+//            System.out.print("用户不存在！");
+//        }catch (IncorrectCredentialsException e){
+//            System.out.print("密码不正确!");
+//        }
+
+
+
+
+
         AuthenticationInfo authcInfo = new SimpleAuthenticationInfo(user.getUsername(), user.getPassword(), "myRealm");
         System.out.print("认证成功！");
         return authcInfo;

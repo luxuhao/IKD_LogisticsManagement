@@ -192,7 +192,7 @@ var vue = new Vue({
 
 
 
-//导航 依赖 element 模块，否则无法进行功能性操作
+//导航 依赖 element 模块，否则无法进行功能性操作 2020-06-11 lua add
 layui.use('element', function(){
     var element = layui.element;
 
@@ -202,7 +202,6 @@ layui.use('element', function(){
 
 
 $(document).ready(function() {
-
 
 
     //删除

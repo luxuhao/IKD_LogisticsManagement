@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:amq="http://activemq.apache.org/schema/core"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core.xsd
+http://activemq.apache.org/schema/core ">
+
+    <!--1.ActiveMQ 真正产生Connection的ConnectionFactory,由对应的 JMS服务厂商提供 也可以用amq:内置标签来定义-->
+    <!--<amq:connectionFactory id="amqConnectionFactory"-->
+    <!--brokerURL="tcp://192.168.1.1:61616"-->
+    <!--userName="admin" password="admin"></amq:connectionFactory>-->
+
+    <bean id="activeMqConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+        <property name="brokerURL" value="tcp://localhost:61616"/>
+        <property name="userName" value="admin"></property>
+        <property name="password" value="admin"></property>
+    </bean>
+
+    <!--2.配置spring 管理 connectionFactory类-->
+    <bean id="connectionFactory" class="org.springframework.jms.connection.CachingConnectionFactory">
+        <constructor-arg ref="activeMqConnectionFactory"/>
+        <property name="sessionCacheSize" value="100"/>
+    </bean>
+
+    <!--3.配置消息队列生产者与消费者以及监听者-->
+    <!-- 定义消息队列（Queue） -->
+    <bean id="myQueueDestination" class="org.apache.activemq.command.ActiveMQQueue">
+        <!-- 设置消息队列的名字 -->
+        <constructor-arg>
+            <value>MyQueueTest01</value>
+        </constructor-arg>
+    </bean>
+
+    <!-- 配置JMS模板（Queue），Spring提供的JMS工具类，它发送、接收消息。 -->
+    <bean id="jmsQueueTemplate" class="org.springframework.jms.core.JmsTemplate">
+        <property name="connectionFactory" ref="connectionFactory"/>
+        <property name="defaultDestination" ref="myQueueDestination"/>
+        <property name="receiveTimeout" value="10000"/>
+        <!-- true是topic，false是queue，默认是false，此处显示写出false -->
+        <property name="pubSubDomain" value="false"/>
+    </bean>
+
+
+    <!-- 配置消息队列监听者（Queue） -->
+    <bean id="queueMessageListener" class="com.ikdzz.service.Impl.activemq.queue.QueueMessageListener"/>
+
+    <!-- 显示注入消息监听容器（Queue），配置连接工厂，监听的目标是demoQueueDestination，监听器是上面定义的监听器 -->
+    <bean id="queueListenerContainer"
+          class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+        <property name="connectionFactory" ref="connectionFactory"/>
+        <property name="destination" ref="myQueueDestination"/>
+        <property name="messageListener" ref="queueMessageListener"/>
+    </bean>
+
+
+    <!--4.配置主题消息生产者以及监听者-->
+    <!--这个是主题(topic)目的地，一对多的 -->
+    <bean id="myTopicDestination" class="org.apache.activemq.command.ActiveMQTopic">
+        <constructor-arg value="MyTopic01"/>
+    </bean>
+
+    <!-- 配置JMS模板（Topic），Spring提供的JMS工具类，它发送、接收消息。 -->
+    <bean id="jmsTopicTemplate" class="org.springframework.jms.core.JmsTemplate">
+        <property name="connectionFactory" ref="connectionFactory"/>
+        <property name="defaultDestination" ref="myTopicDestination"/>
+        <property name="receiveTimeout" value="10000"/>
+        <!-- true是topic，false是queue，默认是false，此处显示写出false -->
+        <property name="pubSubDomain" value="true"/>
+        <!-- 消息不持久化 -->
+        <property name="explicitQosEnabled" value="false"></property>
+    </bean>
+
+
+    <!-- 消息监听类 -->
+    <bean id="topicMessageListener1" class="com.ikdzz.service.Impl.activemq.Topic.TopicMessageListener1"/>
+    <!--目前还没找到DefaultMessageListenerContainer配置多个监听的代码-->
+    <bean id="topicMessageListener2" class="com.ikdzz.service.Impl.activemq.Topic.TopicMessageListener2"/>
+
+    <!-- 消息监听器 -->
+    <bean id="topicListenerContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+        <property name="connectionFactory" ref="connectionFactory"></property>
+        <property name="destination" ref="myTopicDestination"></property>
+        <property name="messageListener" ref="topicMessageListener1"></property>
+    </bean>
+
+</beans>

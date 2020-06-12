@@ -25,43 +25,7 @@
     <div class="layui-layout layui-layout-admin">
 
         <div class="layui-header">
-            <div class="layui-logo"> <h1 v-text="webname"></h1></div>
-            <%--            <i class="layui-icon">&#xe715;</i>--%>
-
-            <%--                <li v-for="vo in address">--%>
-            <%--                    <a  v-text="vo.name" :href="vo.url" ></a> <span>/</span>--%>
-            <%--                </li>--%>
-            <ul class="layui-nav layui-layout-left">
-                <li class="layui-nav-item"><a href="">控制台</a></li>
-                <li class="layui-nav-item"><a href="">商品管理</a></li>
-                <li class="layui-nav-item"><a href="">用户</a></li>
-                <li class="layui-nav-item">
-                    <a href="javascript:;">其它系统</a>
-                    <dl class="layui-nav-child">
-                        <dd><a href="">邮件管理</a></dd>
-                        <dd><a href="">消息管理</a></dd>
-                        <dd><a href="">授权管理</a></dd>
-                    </dl>
-                </li>
-            </ul>
-            <ul class="layui-nav layui-layout-right">
-                <li class="layui-nav-item">
-                    <a href="javascript:;">
-                        <img src="<%=basePath%>/static/admin/img/人员管理.png" class="layui-nav-img">
-                        卢旭浩
-                    </a>
-                    <dl class="layui-nav-child">
-                        <dd><a href="">基本资料</a></dd>
-                        <dd><a href="">安全设置</a></dd>
-                    </dl>
-                </li>
-                <li class="layui-nav-item"><a href="">退了</a></li>
-            </ul>
-
-
-
-
-
+            <%@include file="index_head.jsp"%>
         </div>
 
     </div>>
@@ -109,387 +73,8 @@
                 </div>
             </div>
 
-            <table class="layui-table layui-form">
+            <table class="layui-table layui-form"  id="operation_user">
 
-                <thead>
-                <tr>
-                    <th><a href="?/admin/user/index/order/uid.html">UID</a></th>
-                    <th>手机</th>
-                    <th>用户名</th>
-                    <th>昵称</th>
-                    <th>qq</th>
-                    <th>邮箱</th>
-                    <th><a href="?/admin/user/index/order/reg_time.html">注册时间</a></th>
-                    <th><a href="?/admin/user/index/order/login_time.html">登录时间</a></th>
-                    <th><a href="?/admin/user/index/order/login.html">登录次数</a></th>
-                    <th><a href="?/admin/user/index/order/state.html">状态</a></th>
-                    <th>认证</th>
-                    <th>关联</th>
-                    <th>操作</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr class="id36567">
-                    <td>36567</td>
-                    <td>15912345678</td>
-                    <td>YY187919</td>
-                    <td></td>
-                    <td></td>
-                    <td>YY187919@flash127.com</td>
-                    <td>2019-04-01 11:44:20</td>
-                    <td>2019-04-01 11:44:20</td>
-                    <td>7</td>
-                    <td>
-                        <input type="checkbox" lay-filter="state" data-uid="36567" lay-text="正常|封禁" name="switch" checked  lay-skin="switch">
-                    </td>
-                    <td>0</td>
-                    <td>
-                        xcx                        </td>
-                    <td><a href="?/admin/user/update/uid/36567.html">修改</a></td>
-                </tr>
-                <tr class="id36566">
-                    <td>36566</td>
-                    <td>15912345678</td>
-                    <td>lawkwan</td>
-                    <td></td>
-                    <td></td>
-                    <td>lawkwan@flash127.com</td>
-                    <td>2019-03-29 07:33:17</td>
-                    <td>2019-03-29 07:33:17</td>
-                    <td>1</td>
-                    <td>
-                        <input type="checkbox" lay-filter="state" data-uid="36566" lay-text="正常|封禁" name="switch" checked  lay-skin="switch">
-                    </td>
-                    <td>0</td>
-                    <td>
-                        xcx                        </td>
-                    <td><a href="?/admin/user/update/uid/36566.html">修改</a></td>
-                </tr>
-                <tr class="id36565">
-                    <td>36565</td>
-                    <td>15912345678</td>
-                    <td>shuai</td>
-                    <td></td>
-                    <td>2233192131</td>
-                    <td>shuai@flash127.com</td>
-                    <td>2019-03-28 15:45:30</td>
-                    <td>2019-03-28 15:45:30</td>
-                    <td>1</td>
-                    <td>
-                        <input type="checkbox" lay-filter="state" data-uid="36565" lay-text="正常|封禁" name="switch" checked  lay-skin="switch">
-                    </td>
-                    <td>0</td>
-                    <td>
-                        xcx                        </td>
-                    <td><a href="?/admin/user/update/uid/36565.html">修改</a></td>
-                </tr>
-                <tr class="id36564">
-                    <td>36564</td>
-                    <td>15912345678</td>
-                    <td>wan8023g</td>
-                    <td></td>
-                    <td></td>
-                    <td>wan8023g@flash127.com</td>
-                    <td>2019-03-27 18:49:37</td>
-                    <td>2019-03-27 18:49:37</td>
-                    <td>1</td>
-                    <td>
-                        <input type="checkbox" lay-filter="state" data-uid="36564" lay-text="正常|封禁" name="switch" checked  lay-skin="switch">
-                    </td>
-                    <td>0</td>
-                    <td>
-                        xcx                        </td>
-                    <td><a href="?/admin/user/update/uid/36564.html">修改</a></td>
-                </tr>
-                <tr class="id36563">
-                    <td>36563</td>
-                    <td>15912345678</td>
-                    <td>VAYZY</td>
-                    <td></td>
-                    <td></td>
-                    <td>VAYZY@flash127.com</td>
-                    <td>2019-03-27 13:38:38</td>
-                    <td>2019-03-27 13:38:38</td>
-                    <td>1</td>
-                    <td>
-                        <input type="checkbox" lay-filter="state" data-uid="36563" lay-text="正常|封禁" name="switch" checked  lay-skin="switch">
-                    </td>
-                    <td>0</td>
-                    <td>
-                        xcx                        </td>
-                    <td><a href="?/admin/user/update/uid/36563.html">修改</a></td>
-                </tr>
-                <tr class="id36562">
-                    <td>36562</td>
-                    <td>15912345678</td>
-                    <td>a4483270</td>
-                    <td></td>
-                    <td></td>
-                    <td>a4483270@flash127.com</td>
-                    <td>2019-03-27 01:59:18</td>
-                    <td>2019-03-27 01:59:18</td>
-                    <td>2</td>
-                    <td>
-                        <input type="checkbox" lay-filter="state" data-uid="36562" lay-text="正常|封禁" name="switch" checked  lay-skin="switch">
-                    </td>
-                    <td>0</td>
-                    <td>
-                        xcx                        </td>
-                    <td><a href="?/admin/user/update/uid/36562.html">修改</a></td>
-                </tr>
-                <tr class="id36561">
-                    <td>36561</td>
-                    <td>15912345678</td>
-                    <td>linjing</td>
-                    <td></td>
-                    <td></td>
-                    <td>linjing@flash127.com</td>
-                    <td>2019-03-26 17:53:09</td>
-                    <td>2019-03-26 17:53:09</td>
-                    <td>3</td>
-                    <td>
-                        <input type="checkbox" lay-filter="state" data-uid="36561" lay-text="正常|封禁" name="switch" checked  lay-skin="switch">
-                    </td>
-                    <td>0</td>
-                    <td>
-                        xcx                        </td>
-                    <td><a href="?/admin/user/update/uid/36561.html">修改</a></td>
-                </tr>
-                <tr class="id36560">
-                    <td>36560</td>
-                    <td>15912345678</td>
-                    <td>jy1224761941</td>
-                    <td></td>
-                    <td></td>
-                    <td>jy1224761941@flash127.com</td>
-                    <td>2019-03-25 18:23:40</td>
-                    <td>2019-03-25 18:23:40</td>
-                    <td>1</td>
-                    <td>
-                        <input type="checkbox" lay-filter="state" data-uid="36560" lay-text="正常|封禁" name="switch" checked  lay-skin="switch">
-                    </td>
-                    <td>0</td>
-                    <td>
-                        xcx                        </td>
-                    <td><a href="?/admin/user/update/uid/36560.html">修改</a></td>
-                </tr>
-                <tr class="id36559">
-                    <td>36559</td>
-                    <td>15912345678</td>
-                    <td>JIPU94257</td>
-                    <td></td>
-                    <td></td>
-                    <td>JIPU94257@flash127.com</td>
-                    <td>2019-03-24 20:31:52</td>
-                    <td>2019-03-24 20:31:52</td>
-                    <td>4</td>
-                    <td>
-                        <input type="checkbox" lay-filter="state" data-uid="36559" lay-text="正常|封禁" name="switch" checked  lay-skin="switch">
-                    </td>
-                    <td>0</td>
-                    <td>
-                        xcx                        </td>
-                    <td><a href="?/admin/user/update/uid/36559.html">修改</a></td>
-                </tr>
-                <tr class="id36558">
-                    <td>36558</td>
-                    <td>15912345678</td>
-                    <td>D115285</td>
-                    <td></td>
-                    <td></td>
-                    <td>D115285@flash127.com</td>
-                    <td>2019-03-23 04:57:52</td>
-                    <td>2019-03-23 04:57:52</td>
-                    <td>3</td>
-                    <td>
-                        <input type="checkbox" lay-filter="state" data-uid="36558" lay-text="正常|封禁" name="switch" checked  lay-skin="switch">
-                    </td>
-                    <td>0</td>
-                    <td>
-                        xcx                        </td>
-                    <td><a href="?/admin/user/update/uid/36558.html">修改</a></td>
-                </tr>
-                <tr class="id36557">
-                    <td>36557</td>
-                    <td>15912345678</td>
-                    <td>zhuzhiang12</td>
-                    <td></td>
-                    <td></td>
-                    <td>zhuzhiang12@flash127.com</td>
-                    <td>2019-03-20 12:19:25</td>
-                    <td>2019-03-20 12:19:25</td>
-                    <td>8</td>
-                    <td>
-                        <input type="checkbox" lay-filter="state" data-uid="36557" lay-text="正常|封禁" name="switch" checked  lay-skin="switch">
-                    </td>
-                    <td>0</td>
-                    <td>
-                        xcx                        </td>
-                    <td><a href="?/admin/user/update/uid/36557.html">修改</a></td>
-                </tr>
-                <tr class="id36556">
-                    <td>36556</td>
-                    <td>15912345678</td>
-                    <td>Tianshi87</td>
-                    <td></td>
-                    <td></td>
-                    <td>Tianshi87@flash127.com</td>
-                    <td>2019-03-19 23:24:29</td>
-                    <td>2019-03-19 23:24:29</td>
-                    <td>2</td>
-                    <td>
-                        <input type="checkbox" lay-filter="state" data-uid="36556" lay-text="正常|封禁" name="switch" checked  lay-skin="switch">
-                    </td>
-                    <td>0</td>
-                    <td>
-                        xcx                        </td>
-                    <td><a href="?/admin/user/update/uid/36556.html">修改</a></td>
-                </tr>
-                <tr class="id36555">
-                    <td>36555</td>
-                    <td>15912345678</td>
-                    <td>Yanchutouxiang</td>
-                    <td></td>
-                    <td></td>
-                    <td>Yanchutouxiang@flash127.com</td>
-                    <td>2019-03-19 20:10:45</td>
-                    <td>2019-03-19 20:10:45</td>
-                    <td>6</td>
-                    <td>
-                        <input type="checkbox" lay-filter="state" data-uid="36555" lay-text="正常|封禁" name="switch" checked  lay-skin="switch">
-                    </td>
-                    <td>0</td>
-                    <td>
-                        xcx                        </td>
-                    <td><a href="?/admin/user/update/uid/36555.html">修改</a></td>
-                </tr>
-                <tr class="id36554">
-                    <td>36554</td>
-                    <td>15912345678</td>
-                    <td>zs5201314</td>
-                    <td></td>
-                    <td></td>
-                    <td>zs5201314@flash127.com</td>
-                    <td>2019-03-18 23:38:38</td>
-                    <td>2019-03-18 23:38:38</td>
-                    <td>1</td>
-                    <td>
-                        <input type="checkbox" lay-filter="state" data-uid="36554" lay-text="正常|封禁" name="switch" checked  lay-skin="switch">
-                    </td>
-                    <td>0</td>
-                    <td>
-                        xcx                        </td>
-                    <td><a href="?/admin/user/update/uid/36554.html">修改</a></td>
-                </tr>
-                <tr class="id36553">
-                    <td>36553</td>
-                    <td>15912345678</td>
-                    <td>AL920288</td>
-                    <td></td>
-                    <td></td>
-                    <td>AL920288@flash127.com</td>
-                    <td>2019-03-18 15:04:40</td>
-                    <td>2019-03-18 15:04:40</td>
-                    <td>2</td>
-                    <td>
-                        <input type="checkbox" lay-filter="state" data-uid="36553" lay-text="正常|封禁" name="switch" checked  lay-skin="switch">
-                    </td>
-                    <td>0</td>
-                    <td>
-                        xcx                        </td>
-                    <td><a href="?/admin/user/update/uid/36553.html">修改</a></td>
-                </tr>
-                <tr class="id36552">
-                    <td>36552</td>
-                    <td>15912345678</td>
-                    <td>lcj15172400506</td>
-                    <td></td>
-                    <td></td>
-                    <td>lcj15172400506@flash127.com</td>
-                    <td>2019-03-15 21:39:07</td>
-                    <td>2019-03-15 21:39:07</td>
-                    <td>3</td>
-                    <td>
-                        <input type="checkbox" lay-filter="state" data-uid="36552" lay-text="正常|封禁" name="switch" checked  lay-skin="switch">
-                    </td>
-                    <td>0</td>
-                    <td>
-                        xcx                        </td>
-                    <td><a href="?/admin/user/update/uid/36552.html">修改</a></td>
-                </tr>
-                <tr class="id36551">
-                    <td>36551</td>
-                    <td>15912345678</td>
-                    <td>Jdj565</td>
-                    <td></td>
-                    <td></td>
-                    <td>Jdj565@flash127.com</td>
-                    <td>2019-03-11 20:30:53</td>
-                    <td>2019-03-11 20:30:53</td>
-                    <td>2</td>
-                    <td>
-                        <input type="checkbox" lay-filter="state" data-uid="36551" lay-text="正常|封禁" name="switch" checked  lay-skin="switch">
-                    </td>
-                    <td>0</td>
-                    <td>
-                        xcx                        </td>
-                    <td><a href="?/admin/user/update/uid/36551.html">修改</a></td>
-                </tr>
-                <tr class="id36550">
-                    <td>36550</td>
-                    <td>15912345678</td>
-                    <td>dunuoyan</td>
-                    <td></td>
-                    <td></td>
-                    <td>dunuoyan@flash127.com</td>
-                    <td>2019-03-11 13:34:57</td>
-                    <td>2019-03-11 13:34:57</td>
-                    <td>1</td>
-                    <td>
-                        <input type="checkbox" lay-filter="state" data-uid="36550" lay-text="正常|封禁" name="switch" checked  lay-skin="switch">
-                    </td>
-                    <td>0</td>
-                    <td>
-                        xcx                        </td>
-                    <td><a href="?/admin/user/update/uid/36550.html">修改</a></td>
-                </tr>
-                <tr class="id36549">
-                    <td>36549</td>
-                    <td>15912345678</td>
-                    <td>i7hone</td>
-                    <td></td>
-                    <td></td>
-                    <td>i7hone@flash127.com</td>
-                    <td>2019-03-10 18:56:53</td>
-                    <td>2019-03-10 18:56:53</td>
-                    <td>12</td>
-                    <td>
-                        <input type="checkbox" lay-filter="state" data-uid="36549" lay-text="正常|封禁" name="switch" checked  lay-skin="switch">
-                    </td>
-                    <td>0</td>
-                    <td>
-                        qq                                xcx                        </td>
-                    <td><a href="?/admin/user/update/uid/36549.html">修改</a></td>
-                </tr>
-                <tr class="id36548">
-                    <td>36548</td>
-                    <td>15912345678</td>
-                    <td>hdhDJd</td>
-                    <td>宁缺</td>
-                    <td>null</td>
-                    <td>hdhDJd@flash127.com</td>
-                    <td>2019-03-10 17:23:18</td>
-                    <td>2019-03-10 17:23:18</td>
-                    <td>7</td>
-                    <td>
-                        <input type="checkbox" lay-filter="state" data-uid="36548" lay-text="正常|封禁" name="switch" checked  lay-skin="switch">
-                    </td>
-                    <td>0</td>
-                    <td>
-                        xcx                        </td>
-                    <td><a href="?/admin/user/update/uid/36548.html">修改</a></td>
-                </tr>
-                </tbody>
             </table>
 
             <div class="page"><ul class="pagination"><li class="disabled"><span>&laquo;</span></li> <li class="active"><span>1</span></li><li><a href="?/admin/user/index.html?page=2">2</a></li><li><a href="?/admin/user/index.html?page=3">3</a></li><li><a href="?/admin/user/index.html?page=4">4</a></li><li><a href="?/admin/user/index.html?page=5">5</a></li><li><a href="?/admin/user/index.html?page=6">6</a></li><li><a href="?/admin/user/index.html?page=7">7</a></li><li><a href="?/admin/user/index.html?page=8">8</a></li><li class="disabled"><span>...</span></li><li><a href="?/admin/user/index.html?page=109">109</a></li><li><a href="?/admin/user/index.html?page=110">110</a></li> <li><a href="?/admin/user/index.html?page=2">&raquo;</a></li></ul></div>
@@ -501,6 +86,33 @@
 <script src="<%=basePath%>/static/admin/js/config.js"></script>
 <script src="<%=basePath%>/static/admin/js/script.js"></script>
 <script>
+
+    layui.use('table', function(){
+        var table = layui.table;
+        //第一个实例
+        table.render({
+            elem: '#operation_user'
+            ,height: 312
+            ,url: '<%=basePath%>/user/select' //数据接口
+            ,page: true //开启分页
+            ,cols: [[ //表头
+                {field: 'user_id', title: '用户ID', width:80, sort: true, fixed: 'left'}
+                ,{field: 'username', title: '用户名', width:80}
+                ,{field: 'password', title: '密码', width:80}
+                ,{field: 'email', title: '邮箱', width:80}
+                ,{field: 'phone', title: '手机号', width:80}
+                ,{field: 'sex', title: '性别', width: 177}
+                ,{field: 'age', title: '年龄', width: 80, sort: true}
+                ,{field: 'status', title: '状态', width: 80, sort: true}
+                ,{field: 'create_time', title: '注册时间', width: 80, sort: true}
+                ,{field: 'update_time', title: '更改时间', width: 135}
+                ,{field: 'last_login_time', title: '最后一次登陆时间', width: 135}
+            ]]
+        });
+
+    });
+
+
 </script>
 </body>
 </html>
