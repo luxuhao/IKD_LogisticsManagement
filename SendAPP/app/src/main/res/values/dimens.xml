@@ -1,0 +1,127 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="main_tab_background_height">54.0dip</dimen>
+    <dimen name="text_size_larger">20.0dip</dimen>
+    <!-- OSChina APP -->
+    <dimen name="text_size_small">14.0dip</dimen>
+    <dimen name="text_size_smaller">12.0dip</dimen>
+    <dimen name="text_size_super_large">22.0dip</dimen>
+    <dimen name="text_size_32">32.0dip</dimen>
+    <dimen name="text_size_31">31.0dip</dimen>
+    <dimen name="text_size_30">30.0dip</dimen>
+    <dimen name="text_size_29">29.0dip</dimen>
+    <dimen name="text_size_28">28.0dip</dimen>
+    <dimen name="text_size_27">27.0dip</dimen>
+    <dimen name="text_size_26">26.0dip</dimen>
+    <dimen name="text_size_25">25.0dip</dimen>
+    <dimen name="text_size_24">24.0dip</dimen>
+    <dimen name="text_size_23">23.0dip</dimen>
+    <dimen name="text_size_22">22.0dip</dimen>
+    <dimen name="text_size_21">21.0dip</dimen>
+    <dimen name="text_size_20">20.0dip</dimen>
+    <dimen name="text_size_19">19.0dip</dimen>
+    <dimen name="text_size_18">18.0dip</dimen>
+    <dimen name="text_size_17">17.0dip</dimen>
+    <dimen name="text_size_16">16.0dip</dimen>
+    <dimen name="text_size_15">15.0dip</dimen>
+    <dimen name="text_size_14">14.0dip</dimen>
+    <dimen name="text_size_13">13.0dip</dimen>
+    <dimen name="text_size_12">12.0dip</dimen>
+    <dimen name="text_size_11">11.0dip</dimen>
+    <dimen name="text_size_10">10.0dip</dimen>
+    <dimen name="text_size_9">9.0dip</dimen>
+    <dimen name="text_size_8">8.0dip</dimen>
+    <dimen name="text_size_7">7.0dip</dimen>
+    <dimen name="space_30">30.0dip</dimen>
+    <dimen name="space_29">29.0dip</dimen>
+    <dimen name="space_28">28.0dip</dimen>
+    <dimen name="space_27">27.0dip</dimen>
+    <dimen name="space_26">26.0dip</dimen>
+    <dimen name="space_25">25.0dip</dimen>
+    <dimen name="space_24">24.0dip</dimen>
+    <dimen name="space_23">23.0dip</dimen>
+    <dimen name="space_22">22.0dip</dimen>
+    <dimen name="space_21">21.0dip</dimen>
+    <dimen name="space_20">20.0dip</dimen>
+    <dimen name="space_19">19.0dip</dimen>
+    <dimen name="space_18">18.0dip</dimen>
+    <dimen name="space_17">17.0dip</dimen>
+    <dimen name="space_16">16.0dip</dimen>
+    <dimen name="space_15">15.0dip</dimen>
+    <dimen name="space_14">14.0dip</dimen>
+    <dimen name="space_13">13.0dip</dimen>
+    <dimen name="space_12">12.0dip</dimen>
+    <dimen name="space_11">11.0dip</dimen>
+    <dimen name="space_10">10.0dip</dimen>
+    <dimen name="space_9">9.0dip</dimen>
+    <dimen name="space_8">8.0dip</dimen>
+    <dimen name="space_7">7.0dip</dimen>
+    <dimen name="space_6">6.0dip</dimen>
+    <dimen name="space_5">5.0dip</dimen>
+    <dimen name="space_4">4.0dip</dimen>
+    <dimen name="space_3">3.0dip</dimen>
+    <dimen name="space_2">2.0dip</dimen>
+    <dimen name="space_1">1.0dip</dimen>
+    <dimen name="list_padding">10dp</dimen>
+
+    <dimen name="edit_box_height">44.0dip</dimen>
+    <dimen name="input_box_left_padding">9.0dip</dimen>
+    <dimen name="notice_vertical_padding">8.0dip</dimen>
+    <dimen name="font_large">18.0sp</dimen>
+    <dimen name="font_normal">16.0sp</dimen>
+    <dimen name="font_medium">14.0sp</dimen>
+    <dimen name="font_small">12.0sp</dimen>
+    <dimen name="btn_next_height">48.0dip</dimen>
+    <dimen name="cell_height">48.0dip</dimen>
+    <dimen name="vertical_sep_width">1.0px</dimen>
+    <dimen name="font_anodized">20.0dip</dimen>
+
+    <dimen name="confirm_title">26.0dip</dimen>
+    <dimen name="head_title">20.0dip</dimen>
+    <dimen name="title_1">18.0dip</dimen>
+    <dimen name="title_s">14.0dip</dimen>
+    <dimen name="context_s">15.0dip</dimen>
+    <dimen name="tip_1">18.0dip</dimen>
+    <dimen name="margin_1">15.0dip</dimen>
+    <dimen name="margin_small">7.0dip</dimen>
+    <dimen name="margin_ss">5.0dip</dimen>
+    <dimen name="margin_sss">3.0dip</dimen>
+    <dimen name="margin_top">12.0dip</dimen>
+    <dimen name="margin_top_s">6.0dip</dimen>
+    <dimen name="margin_top_small">3.0dip</dimen>
+
+    <dimen name="layout_height_s">28dp</dimen>
+
+    <dimen name="dialog_tx_margin">6.0dip</dimen>
+    <dimen name="dialog_tx_padding">4dp</dimen>
+
+    <!-- ios Segmented Control Kaopiz/android-segmented-control -->
+    <dimen name="radio_button_conner_radius">5dp</dimen>
+    <dimen name="radio_button_stroke_border">1dp</dimen>
+    <dimen name="SEGMENTCONTROL_CORNER">5dp</dimen>
+    <dimen name="SEGMENTCONTROL_BORDER">1dp</dimen>
+    <!-- TableFixHeaders github.com/InQBarna/TableFixHeaders -->
+    <dimen name="table_width">120dp</dimen>
+    <dimen name="table_height">40dp</dimen>
+    <dimen name="table_height_s">35dp</dimen>
+    <dimen name="table_height_ss">30dp</dimen>
+    <dimen name="table_height_sss">25dp</dimen>
+    <dimen name="table_height_jjj">50dp</dimen>
+    <dimen name="send_table_height_big">80dp</dimen>
+    <dimen name="send_txt_height_big">70dp</dimen>
+    <dimen name="send_pic_height_big">454dp</dimen>
+
+    <dimen name="text_left_padding">12dip</dimen>
+    <dimen name="text_left_padding_s">5dip</dimen>
+    <dimen name="padding_top">8dp</dimen>
+    <dimen name="padding_top_s">2dp</dimen>
+    <dimen name="padding_bottom">8dp</dimen>
+    <dimen name="padding_bottom_s">2dp</dimen>
+    <dimen name="padding_1">3dip</dimen>
+
+
+
+    <dimen name="shadow_size">8dip</dimen>
+</resources>
