@@ -43,6 +43,9 @@
         <activity
             android:name=".ui.our.SendListActivity" >
         </activity>
+        <activity
+            android:name=".ui.our.SendDetailActivity" >
+        </activity>
 
     </application>
 

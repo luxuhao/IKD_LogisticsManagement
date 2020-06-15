@@ -3,114 +3,83 @@ package com.example.sendapp.ui.our;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.text.TextPaint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.GridView;
-import android.widget.Spinner;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.sendapp.R;
-import com.example.sendapp.ui.entity.send.SendInfo;
+import com.example.sendapp.ui.entity.send.SendDetail;
 import com.example.sendapp.ui.tablefixheaders.TableFixHeaders;
 import com.example.sendapp.ui.tablefixheaders.adapters.BaseTableAdapter;
-import com.example.sendapp.ui.util.DialogUtils;
-import com.example.sendapp.ui.util.StringUtils;
+import com.example.sendapp.ui.util.QRCodeUtil;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class SendListActivity extends AppCompatActivity {
-    private static final String[] statusSend={"待确认","已确认","已出厂","已送达"};
-    private GridView m_gview; // 送货单信息主表
-    private Spinner spinner;
-    private String m_status;
-    private ArrayAdapter<String> adapter;
-    private List<SendInfo> list ;
-    private SendAdapter mTableAdapter;
+
+public class SendDetailActivity extends AppCompatActivity {
+    private List<SendDetail> list ;
+    private SendDetailAdapter mTableAdapter;
+    private String m_id;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.send_list);
-        spinner = (Spinner) findViewById(R.id.tv_status);
-        //将可选内容与ArrayAdapter连接起来
-        adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,statusSend);
-        //设置下拉列表的风格
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        //将adapter 添加到spinner中
-        spinner.setAdapter(adapter);
-        //添加事件Spinner事件监听
-        spinner.setOnItemSelectedListener(new SpinnerSelectedListener());
-        //设置默认值
-        spinner.setVisibility(View.VISIBLE);
+        setContentView(R.layout.send_detail);
 
+        Intent it = getIntent();
+        m_id = it.getStringExtra("id");
+        System.out.println(m_id);
+        ImageView mImageView = (ImageView) findViewById(R.id.qr_code);
+        Bitmap mBitmap = QRCodeUtil.createQRCodeBitmap(m_id, 500, 500);
+        mImageView.setImageBitmap(mBitmap);
         //表格
         TableFixHeaders tableFixHeaders = (TableFixHeaders) findViewById(R.id.table);
-        mTableAdapter = new SendAdapter(this);
+        mTableAdapter = new SendDetailAdapter(this);
         tableFixHeaders.setAdapter(mTableAdapter);
-        list=new ArrayList<SendInfo>();
+        list=new ArrayList<SendDetail>();
         list.clear();
         getList("");
         refreshTable();
-
-
     }
+
+
     /**
      * 获取待确认清单
      */
-    public void getList(String status) {
+    public void getList(String  mId) {
         // Do something in response to button
         //todo  获取不同状态的送货清单
-        SendInfo info = new SendInfo();
-        info.setId("dhsnjd2222");
-        info.setSendNo("S000001");
-        info.setBasketQty(7);
-        info.setSumQty(300);
-        info.setDriver("张三");
-        info.setCarNo("浙B888888");
-        info.setStartPlace("#1");
-        info.setDestination("#2");
-        list.add(info);
+        SendDetail sendDetail = new SendDetail();
+        sendDetail.setCav_no("3-1");
+        sendDetail.setMaterial_id("28u49345");
+        sendDetail.setMaterial_name("测试");
+        sendDetail.setQty(204);
+        sendDetail.setSendId(mId);
+        sendDetail.setSite("F01");
+        sendDetail.setTrace_no("20200613");
+        list.add(sendDetail);
     }
-
-
-    //使用数组形式操作
-    class SpinnerSelectedListener implements AdapterView.OnItemSelectedListener {
-
-        public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2,
-                                   long arg3) {
-            m_status = statusSend[arg2];
-           getList(statusSend[arg2]);
-            refreshTable();
-        }
-
-        public void onNothingSelected(AdapterView<?> arg0) {
-        }
-    }
-
 
     private void refreshTable() {
-        if (StringUtils.isEmpty(m_status)) {
-//            DialogUtils.showError(this,"请选择状态信息",null);
-            return;
-        }
-        mTableAdapter.notifyDataSetChanged();
+        //根据ID获取送货明细
+        getList(m_id);
     }
 
-    public class SendAdapter extends BaseTableAdapter {
+    public class SendDetailAdapter extends BaseTableAdapter {
         private final Context context;
         private final LayoutInflater inflater;
         private final int width;
         private final int height;
 
-        public SendAdapter(Context context) {
+        public SendDetailAdapter(Context context) {
             this.context = context;
             inflater = LayoutInflater.from(context);
             Resources resources = context.getResources();
@@ -129,7 +98,7 @@ public class SendListActivity extends AppCompatActivity {
 
         @Override
         public int getColumnCount() {
-            return 7;
+            return 5;
         }
 
         @Override
@@ -173,35 +142,24 @@ public class SendListActivity extends AppCompatActivity {
             if (converView == null) {
                 converView = inflater.inflate(getLayoutResource(row, column), parent, false);
             }
-            //批次、数量、型腔号、时间
+            //批次、数量、型腔号
             if (row==-1 && column==0) {
-                return setHeaderTitle(converView, "送货单号");
+                return setHeaderTitle(converView, "产品名称");
             } else if (row==-1 && column==1) {
-                return setHeaderTitle(converView, "车牌号");
+                return setHeaderTitle(converView, "型腔号");
             } else if (row==-1 && column==2) {
-                return setHeaderTitle(converView, "出发地");
+                return setHeaderTitle(converView, "库位");
             } else if (row==-1 && column==3) {
-                return setHeaderTitle(converView, "目的地");
+                return setHeaderTitle(converView, "批次号");
             } else if (row==-1 && column==4) {
-                return setHeaderTitle(converView, "装箱数");
-            }
-            else if (row==-1 && column==5) {
-                return setHeaderTitle(converView, "司机");
-            }
-            else if (row==-1 && column==6) {
-                return setHeaderTitle(converView, "送货总数");
+                return setHeaderTitle(converView, "数量");
             }
             converView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    String id = list.get(row).getId();
-                    //打开送货明细界面，同时需生成相关的二维码
-                    Intent intent = new Intent(SendListActivity.this, SendDetailActivity.class);
-                    intent.putExtra("id", list.get(row).getId());
-                    startActivity(intent);
+                    mTableAdapter.notifyDataSetChanged();
                 }
             });
-
             setText(converView, getCellString(row, column));
             return converView;
         }
@@ -233,28 +191,20 @@ public class SendListActivity extends AppCompatActivity {
                 return 100;
             } else if (column==4) {
                 return 100;
-            } else if (column==5) {
-                return 100;
-            } else if (column==6) {
-                return 300;
             }
             return width;
         }
         private String getCellString(int row, int column) {
             if (column==0) {
-                return list.get(row).getSendNo();
+                return list.get(row).getMaterial_name();
             } else if (column==1) {
-                return list.get(row).getCarNo();
+                return list.get(row).getCav_no();
             } else if (column==2) {
-                return list.get(row).getStartPlace();
+                return list.get(row).getSite();
             } else if (column==3) {
-                return list.get(row).getDestination();
+                return list.get(row).getTrace_no();
             } else if (column==4) {
-                return list.get(row).getBasketQty()+"";
-            } else if (column==5) {
-                return list.get(row).getDriver();
-            }else if (column==6) {
-                return list.get(row).getSumQty()+"";
+                return list.get(row).getQty()+"";
             }
             return "Lorem (" + row + ", " + column + ")";
         }

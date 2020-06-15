@@ -1,6 +1,7 @@
-package com.example.sendapp.ui.entity;
+package com.example.sendapp.ui.entity.send;
 
 public class SendInfo {
+    private String id;
     //送货单号
     private String sendNo;
     //送货总数
@@ -17,6 +18,14 @@ public class SendInfo {
     private String startPlace;
     //送货状态
     private String status;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getSendNo() {
         return sendNo;
